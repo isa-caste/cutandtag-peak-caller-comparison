@@ -1,0 +1,9 @@
+*.fastq
+*.fastq.gz
+*.bam
+*.bai
+*.bed
+*.bigwig
+*.sam
+*.tmp
+*.log
