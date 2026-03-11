@@ -1,0 +1,8 @@
+
+/// MultiQC 🔍 v1.34.dev0
+
+       file_search | Search path: /N/project/Krolab/isabella/data/bam-qc/samtools_stats
+          samtools | Found 38 stats reports
+     write_results | Data        : /N/project/Krolab/isabella/data/bam-qc/multiqc_report/multiqc_report_data
+     write_results | Report      : /N/project/Krolab/isabella/data/bam-qc/multiqc_report/multiqc_report.html
+           multiqc | MultiQC complete
