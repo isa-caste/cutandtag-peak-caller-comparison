@@ -1,9 +1,9 @@
 #!/bin/bash
 #SBATCH --mail-user=isacaste@iu.edu
 #SBATCH --mail-type=BEGIN,FAIL,END
-#SBATCH --job-name=align
-#SBATCH -o align.out
-#SBATCH -e align.err
+#SBATCH --job-name=bam-summary
+#SBATCH -o bam-summary.out
+#SBATCH -e bam-summary.err
 #SBATCH --nodes=2
 #SBATCH --mem=16g
 #SBATCH -p gpu
@@ -15,13 +15,8 @@
 set -e
 
 QC_OUTDIR="/N/project/Krolab/isabella/data/bam-qc"
-SUMMARY_FILE="$QC_OUTDIR/bam_qc_summary.txt"
+SUMMARY_FILE="$QC_OUTDIR/bam_qc_summary.csv"
 
-
-
-# Create summary file with header
-echo "Sample Name | Total Reads | Mapped Reads | % Mapped | Mean Insert Size | Max Insert Size" > "$SUMMARY_FILE"
-echo "=============================================================================" >> "$SUMMARY_FILE"
 
 # Process each flagstat file
 for FLAGSTAT in "$QC_OUTDIR"/*_flagstat.txt; do
@@ -45,13 +40,12 @@ for FLAGSTAT in "$QC_OUTDIR"/*_flagstat.txt; do
             MEAN_INSERT=$(awk '{sum += $2 * $1; count += $1} END {if (count > 0) print int(sum/count)}' "$INSERT_FILE")
             MAX_INSERT=$(tail -1 "$INSERT_FILE" | awk '{print $2}')
         else
-            MEAN_INSERT="N/A"
-            MAX_INSERT="N/A"
+            MEAN_INSERT="NA"
+            MAX_INSERT="NA"
         fi
         
-        # Print summary line
-        printf "%-20s | %12s | %12s | %8s%% | %16s | %15s\n" \
-            "$BASENAME" "$TOTAL_READS" "$MAPPED_READS" "$PERCENT_MAPPED" "$MEAN_INSERT bp" "$MAX_INSERT bp" >> "$SUMMARY_FILE"
+        # Print CSV line (no units in the data, just numbers)
+        echo "$BASENAME,$TOTAL_READS,$MAPPED_READS,$PERCENT_MAPPED,$MEAN_INSERT,$MAX_INSERT" >> "$SUMMARY_FILE"
     fi
 done
 

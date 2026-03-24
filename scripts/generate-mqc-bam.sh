@@ -2,7 +2,7 @@
 #SBATCH --mail-user=isacaste@iu.edu
 #SBATCH --mail-type=BEGIN,FAIL,END
 #SBATCH -o mqcbam.out
-#SBATCH -e mqc.err
+#SBATCH -e mqcbam.err
 #SBATCH --job-name=mqcbam
 #SBATCH -p gpu
 #SBATCH --gpus-per-node=1
