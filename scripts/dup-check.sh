@@ -2,7 +2,7 @@
 
 # Check Duplication Rates Script
 # Extracts duplication metrics from samtools stats files
-# Usage: chmod +x check_duplicates.sh && ./check_duplicates.sh
+
 
 set -e
 
