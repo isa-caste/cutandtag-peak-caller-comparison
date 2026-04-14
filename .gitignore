@@ -7,3 +7,17 @@
 *.sam
 *.tmp
 *.log
+*.fq
+*.fq.gz
+*.cram
+*.crai
+*.tmp
+*.temp
+*~
+.DS_Store
+.Rhistory
+.RData
+*.pyc
+__pycache__/
+*.err
+*.out
