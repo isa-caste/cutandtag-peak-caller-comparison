@@ -1,5 +1,5 @@
 # Benchmarking CUT&Tag Peak Callers and Genome Assemblies for Histone Modification Detection
-This project reproduces and extends the analysis from Abbasova et al. (2025), which demonstrated that CUT&Tag can recover up to ~54% of ENCODE ChIP-seq histone acetylation peaks. We evaluate whether genome build choice (hg19 vs. hg38) and peak caller selection (MACS2, SEACR, DiffReps, GoPeaks) affect the biological conclusions drawn from CUT&Tag data.
+This project reproduces and extends the analysis from Abbasova et al. (2025), which demonstrated that CUT&Tag can recover up to ~54% of ENCODE ChIP-seq histone acetylation peaks. We evaluate whether genome build choice (hg19 vs. hg38) and peak caller selection (MACS2, SEACR, GoPeaks) affect the biological conclusions drawn from CUT&Tag data.
 The analysis is organized into four stages: reproduction of the original pipeline, genome version comparison, peak caller benchmarking, and functional validation.
 ## Overview
 ## Data 
